@@ -1,0 +1,25 @@
+{
+  "name": "rct-s3-uploader",
+  "version": "1.0.0",
+  "description": "React s3 uploader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hurgot/rct-s3-uploader.git"
+  },
+  "keywords": [
+    "React",
+    "S3",
+    "Uploader",
+    "Node"
+  ],
+  "author": "HurgotDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hurgot/rct-s3-uploader/issues"
+  },
+  "homepage": "https://github.com/Hurgot/rct-s3-uploader#readme"
+}
