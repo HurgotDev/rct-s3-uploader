@@ -47,7 +47,7 @@ export type TS3UploadOptions = {
 	uploadRequestHeaders?: THeader;
 	preprocess?: (file: File, cb: (f: File) => void) => any;
 	onProgress?: (percent: number, status: string, file: File) => void;
-	onFinishS3Put?: (signResult: TSignReturn, file: file) => void;
+	onFinishS3Put?: (signResult: TSignReturn, file: File) => void;
 	onError?: (status: string, file: File, other?: any) => any;
 	signingUrlQueryParams?: (() => object) | object;
 	signingUrlHeaders?: (() => object) | object = {};

@@ -3,14 +3,14 @@ import * as mime from 'mime-types'
 
 export default class S3Upload {
 
-  server: string = ''
-  signingUrl: string = '/sign-s3'
+  server = ''
+  signingUrl = '/sign-s3'
   signingUrlMethod: TMethod = 'GET'
-  successResponses: number[] = [200, 2001]
+  successResponses = [200, 2001]
   fileElement: HTMLInputElement | null = null
   files: File[] | null = null
   s3path: string
-  signingUrlWithCredentials: boolean = false
+  signingUrlWithCredentials = false
   contentDisposition: TDisposition = '';
   uploadRequestHeaders: any;
   httpRequest: XMLHttpRequest | null = null;
