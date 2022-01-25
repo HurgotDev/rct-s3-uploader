@@ -1,5 +1,5 @@
 import { TCreateCorsOptions, TDisposition, THeader, TMethod, TS3UploadOptions, TSignReturn } from "./types"
-import * as mime from 'mime-types'
+const mime = require('mime-types')
 
 function getFileMimeType(file: File) {
   return file.type || mime.lookup(file.name);
