@@ -1,6 +1,6 @@
 {
   "name": "rct-s3-uploader",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React s3 uploader",
   "main": "index.js",
   "scripts": {
