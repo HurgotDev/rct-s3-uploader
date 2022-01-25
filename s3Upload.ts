@@ -1,9 +1,5 @@
 import { TCreateCorsOptions, TDisposition, THeader, TMethod, TS3UploadOptions, TSignReturn } from "./types"
-const mime = require('mime-types')
-
-function getFileMimeType(file: File) {
-  return file.type || mime.lookup(file.name);
-}
+import * as mime from 'mime-types'
 
 export default class S3Upload {
 
@@ -74,13 +70,17 @@ export default class S3Upload {
   };
 
 
-  createCORSRequest(method: TMethod, url: string, opts: TCreateCorsOptions = {}) {
+  private createCORSRequest(method: TMethod, url: string, opts: TCreateCorsOptions = {}) {
     let xhr = new XMLHttpRequest();
 
     xhr.open(method, url, true)
     xhr.withCredentials = !!opts.withCredentials
 
     return xhr
+  }
+
+  private getFileMimeType(f: File) {
+    return f.type || mime.lookup(f.name);
   }
 
   private handleFileSelect(files: File[]) {
@@ -107,7 +107,7 @@ export default class S3Upload {
 
   private executeOnSignedUrl(file: File, callback: (...args: any[]) => void) {
     const fileName = this.scrubFilename(file.name);
-    let queryString = `?objectName=${fileName}&contentType=${encodeURIComponent(getFileMimeType(file))}`;
+    let queryString = `?objectName=${fileName}&contentType=${encodeURIComponent(this.getFileMimeType(file))}`;
 
     if (this.s3path) queryString += `&path=${encodeURIComponent(this.s3path)}`;
     if (this.signingUrlQueryParams) {
@@ -199,7 +199,7 @@ export default class S3Upload {
       }
     }
 
-    const fileType = getFileMimeType(file)
+    const fileType = this.getFileMimeType(file)
     const headers: THeader = {
       'content-type': fileType
     }
