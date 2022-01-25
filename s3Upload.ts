@@ -5,13 +5,13 @@ export default class S3Upload {
 
   server = ''
   signingUrl = '/sign-s3'
-  signingUrlMethod: TMethod = 'GET'
+  signingUrlMethod = 'GET'
   successResponses = [200, 2001]
   fileElement: HTMLInputElement | null = null
   files: File[] | null = null
   s3path: string
   signingUrlWithCredentials = false
-  contentDisposition: TDisposition = '';
+  contentDisposition = '';
   uploadRequestHeaders: any;
   httpRequest: XMLHttpRequest | null = null;
   signingUrlQueryParams: (() => object) | object = {}
@@ -70,7 +70,7 @@ export default class S3Upload {
   };
 
 
-  private createCORSRequest(method: TMethod, url: string, opts: TCreateCorsOptions = {}) {
+  private createCORSRequest(method: string, url: string, opts: TCreateCorsOptions = {}) {
     let xhr = new XMLHttpRequest();
 
     xhr.open(method, url, true)
